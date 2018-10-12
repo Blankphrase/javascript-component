@@ -11,16 +11,23 @@
 <div onclick="hasChildElement()"><p>element</p></div>
     <script>
         
-function hasChildElement(elm, rv) {
+function hasChildElement(elm) {
+    var child, rv;
 
     if (elm.children) {
         // Supports `children`
-        rv(elm.children.tagName);
-    } 
- }
- hasChildElement(elm, function(tagName){
-    alert(tagName);
- });
+        rv = elm.children.tagName;
+    } else {
+        // The hard way...
+        rv = false;
+        for (child = element.firstChild; !rv && child; child = child.nextSibling) {
+            if (child.nodeType == 1) { // 1 == Element
+                rv = true;
+            }
+        }
+    }
+    alert(rv);
+}
 
   
     </script>

@@ -3,34 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Javascript Component</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Javascript component</title>
 </head>
 <body>
 
-<div onclick="hasChildElement()"><p>element</p></div>
-    <script>
-        
-function hasChildElement(elm) {
-    var child, rv;
+<p>Example list:</p>
 
-    if (elm.children) {
-        // Supports `children`
-        rv = elm.children.tagName;
-    } else {
-        // The hard way...
-        rv = false;
-        for (child = element.firstChild; !rv && child; child = child.nextSibling) {
-            if (child.nodeType == 1) { // 1 == Element
-                rv = true;
-            }
-        }
-    }
-    alert(rv);
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>Click the button to get the HTML content of the element's child element.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var list = document.getElementById("myList").children[0].tagName;
+    document.getElementById("demo").innerHTML = list;
 }
+</script>
 
-  
-    </script>
-    
- </body>
- </html>
+</body>
+</html>
