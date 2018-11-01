@@ -4,28 +4,42 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Javascript Component</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div class="container">
+  <h2>Today's timetable</h2>
+  <div class="list-group">
+    <a href="#" class="list-group-item active">
+      <h4 class="list-group-item-heading">For Breakfast</h4>
+      <p class="list-group-item-text">Eggs and Bacon</p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">For Lunch</h4>
+      <p class="list-group-item-text">Milk Shake and Bananas</p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">For Supper</h4>
+      <p class="list-group-item-text">Chiken and Kool-aid</p>
+    </a>
+  </div>
+</div>
 
-<p>Example list:</p>
-
-<ul id="myList">
-  <li>Coffee</li>
-  <li>Tea</li>
-</ul>
-
-<p>Click the button to get the HTML content of the element's child element.</p>
-
-<button onclick="myFunction()">Enter</button>
-
-<p id="demo"></p>
 
 <script>
-function myFunction() {
-    var list = document.getElementById("myList").children[0].tagName;
-    document.getElementById("demo").innerHTML = list;
+function domTraversal(node, innerTraversal) {
+    if (node == null){
+        return;
+    }else if (node.children
+    innerTraversal(node);
+    for (var i = 0; i < node.childNodes.length; i++) {
+        domTraversal(node.childNodes[i], innerTraversal);
+    }
 }
+domTraversal(document.body, function(node){
+    console.log(node.nodeName);
+});
 </script>
 
 </body>
