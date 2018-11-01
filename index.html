@@ -31,11 +31,11 @@
 function domTraversal(node, innerTraversal) {
     if (node == null){
         return;
-    }else if (node.children
+    }else if (node.children){
     innerTraversal(node);
     for (var i = 0; i < node.childNodes.length; i++) {
         domTraversal(node.childNodes[i], innerTraversal);
-    }
+    }}
 }
 domTraversal(document.body, function(node){
     console.log(node.nodeName);
